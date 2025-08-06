@@ -1,0 +1,242 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+@import '../../assets/styles/animations';
+
+.about-section {
+  padding: 8rem 2rem;
+  
+  @media (max-width: $breakpoint-sm) {
+    padding: 6rem 1.5rem;
+  }
+  
+  position: relative;
+  overflow: hidden;
+  
+  .content {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    
+    .text-content {
+      flex: 1;
+      
+      h3 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: $secondary;
+      }
+      
+      p {
+        color: $text-light;
+        margin-bottom: 2rem;
+        line-height: 1.8;
+      }
+      
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin: 2.5rem 0;
+        
+        .stat-item {
+          text-align: center;
+          padding: 1.5rem;
+          border-radius: 15px;
+          background: rgba($white, 0.4);
+          backdrop-filter: blur(5px);
+          
+          .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: $primary;
+            margin-bottom: 0.5rem;
+          }
+          
+          .stat-label {
+            font-size: 0.9rem;
+            color: $text-light;
+          }
+        }
+      }
+    }
+    
+    .visual {
+      flex: 1;
+      position: relative;
+      
+      .main-visual {
+        height: 400px;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        .timeline {
+          position: relative;
+          width: 100%;
+          height: 10px;
+          background: rgba($primary, 0.2);
+          border-radius: 5px;
+          
+          &-line {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 80%;
+            background: linear-gradient(135deg, $primary 0%, $primary-light 100%);
+            border-radius: 5px;
+          }
+          
+          &-marker {
+            position: absolute;
+            top: -30px;
+            font-weight: 700;
+            color: $secondary;
+            
+            &:first-child {
+              left: 0;
+            }
+            
+            &:last-child {
+              right: 0;
+            }
+          }
+        }
+      }
+      
+      .floating-cards {
+        position: absolute;
+        bottom: -50px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 1rem;
+        
+        .glass-card {
+          width: 45%;
+          padding: 1.5rem;
+          
+          h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: $secondary;
+          }
+          
+          p {
+            font-size: 0.9rem;
+            color: $text-light;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .about-section {
+    .content {
+      flex-direction: column;
+      
+      .visual {
+        width: 100%;
+        
+        .floating-cards {
+          position: relative;
+          bottom: auto;
+          margin-top: 2rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    .content {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .visual {
+        .floating-cards {
+          flex-direction: column;
+          gap: 1.5rem;
+          
+          .glass-card {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 992px) {
+    .about-section {
+      .content {
+        flex-direction: column;
+        
+        .visual {
+          width: 100%;
+          margin-top: 2rem;
+          
+          .main-visual {
+            height: 300px;
+          }
+          
+          .floating-cards {
+            position: relative;
+            bottom: auto;
+            margin-top: 2rem;
+          }
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .about-section {
+      padding: 6rem 1rem;
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .content {
+        .text-content {
+          h3 {
+            font-size: 1.6rem;
+          }
+          
+          .stats-grid {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            
+            .stat-item {
+              padding: 1rem;
+              
+              .stat-value {
+                font-size: 1.8rem;
+              }
+            }
+          }
+        }
+        
+        .visual {
+          .main-visual {
+            height: 250px;
+            padding: 1.5rem;
+          }
+          
+          .floating-cards {
+            flex-direction: column;
+            gap: 1.5rem;
+            
+            .glass-card {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }

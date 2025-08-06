@@ -1,0 +1,62 @@
+// Colors
+$primary: #2563eb;
+$primary-light: #3b82f6;
+$primary-dark: #1d4ed8;
+$secondary: #0f172a;
+$text-dark: #1e293b;
+$text-light: #64748b;
+$white: #ffffff;
+$light-bg: #f8fafc;
+$success: #10b981;
+$warning: #f59e0b;
+
+
+// Breakpoints
+$breakpoint-xs: 480px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 992px;
+$breakpoint-lg: 1200px;
+$breakpoint-xl: 1440px;
+// Functions to access maps
+@function color($key) {
+  @return map-get($colors, $key);
+}
+
+@function breakpoint($key) {
+  @return map-get($breakpoints, $key);
+}
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin glass-effect {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+@mixin section-padding {
+  padding: 8rem 2rem;
+  
+  @media (max-width: breakpoint(sm)) {
+    padding: 6rem 1.5rem;
+  }
+}
+
+@mixin container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}

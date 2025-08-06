@@ -1,0 +1,206 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+@import '../../assets/styles/animations';
+
+.services-section {
+  padding: 8rem 2rem;
+  background: linear-gradient(to bottom, rgba($primary-light, 0.03), transparent);
+  
+  @media (max-width: $breakpoint-sm) {
+    padding: 6rem 1.5rem;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    
+    .tab {
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      background: transparent;
+      border: 2px solid rgba($primary, 0.2);
+      color: $text-dark;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        border-color: $primary;
+      }
+      
+      &.active {
+        background: linear-gradient(135deg, $primary 0%, $primary-light 100%);
+        color: white;
+        border-color: $primary;
+      }
+    }
+  }
+  
+  .schemes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+    
+    .scheme-card {
+      padding: 2.5rem 2rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px rgba(31, 38, 135, 0.25);
+      }
+      
+      &.featured {
+        border: 2px solid rgba($warning, 0.3);
+        transform: scale(1.02);
+      }
+      
+      .featured-badge {
+        position: absolute;
+        top: -12px;
+        right: 20px;
+        background: $warning;
+        color: white;
+        padding: 0.3rem 1.2rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+      
+      h3 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+        color: $secondary;
+        text-align: center;
+      }
+      
+      .scheme-details {
+        margin-bottom: 2rem;
+        
+        .detail-item {
+          display: flex;
+          align-items: center;
+          padding: 1rem 0;
+          border-bottom: 1px dashed rgba($text-light, 0.2);
+          
+          .icon {
+            width: 40px;
+            height: 40px;
+            background: rgba($primary, 0.1);
+            border-radius: 50%;
+            @include flex-center;
+            margin-right: 1rem;
+            color: $primary;
+            font-size: 1.2rem;
+          }
+          
+          .label {
+            font-size: 0.9rem;
+            color: $text-light;
+          }
+          
+          .value {
+            font-weight: 600;
+            font-size: 1.1rem;
+          }
+        }
+      }
+      
+      .btn {
+        margin-top: auto;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        &-secondary {
+          background: transparent;
+          color: $primary;
+          border: 2px solid $primary;
+          
+          &:hover {
+            background: rgba($primary, 0.05);
+          }
+        }
+        
+        .arrow {
+          margin-left: 0.5rem;
+          transition: all 0.3s ease;
+        }
+        
+        &:hover {
+          .arrow {
+            transform: translateX(5px);
+          }
+        }
+      }
+    }
+  }
+  
+  .disclaimer {
+    padding: 1.5rem 2rem;
+    font-size: 0.85rem;
+    color: $text-light;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  }
+}
+
+@media (max-width: 768px) {
+    .services-section {
+      padding: 6rem 1rem;
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .tabs {
+        gap: 0.5rem;
+        
+        .tab {
+          padding: 0.6rem 1.2rem;
+          font-size: 0.9rem;
+        }
+      }
+      
+      .schemes-grid {
+        grid-template-columns: 1fr;
+        
+        .scheme-card {
+          padding: 1.5rem;
+          
+          h3 {
+            font-size: 1.4rem;
+          }
+          
+          .scheme-details {
+            .detail-item {
+              padding: 0.8rem 0;
+              
+              .icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
